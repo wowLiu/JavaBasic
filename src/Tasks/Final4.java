@@ -13,23 +13,25 @@ public class Final4 {
         String advice = "Из зипа зараза";
 
 
-        while (count<3) {
-            answer = inputAnswer.nextLine();
-            attempt = answer.equalsIgnoreCase("Заархивированный вирус");
-            if (answer.equalsIgnoreCase("Подсказка")) {
-                System.out.println(advice);
-                count = 2;
-                System.out.println(count);
-            }else if (attempt) {
-                System.out.println("Правильно!");
-                break;
-            } else if (count<2){
-                System.out.println("Подумай еще");
-                count++;
-            }else{
-                System.out.println("Обидно, приходи в другой раз");
-                break;
-            }
+    while (count <= 3) {
+        answer = inputAnswer.nextLine();
+        attempt = answer.equalsIgnoreCase("Заархивированный вирус");
+        if (attempt) {
+            System.out.println("Правильно!");
+            break;
         }
+
+        if (answer.equalsIgnoreCase("Подсказка") && count == 0) {
+            System.out.println(advice);
+        } else if (count < 2 && !answer.equalsIgnoreCase("Подсказка")){
+            System.out.println("Подумай еще");
+        } else if (answer.equalsIgnoreCase("Подсказка") && count != 0) {
+            System.out.println("Подсказка уже недоступна");
+            count--;
+        }
+
+        count++;
+        if (count == 3) System.out.println("Обидно, приходи в другой раз");
     }
+}
 }
