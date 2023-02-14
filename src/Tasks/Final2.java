@@ -8,21 +8,35 @@ public class Final2 {
         System.out.println("Введите уравнение: ");
         String text = input.nextLine();
         int res = 0;
+        int first = 0;
+        int second = 0;
+        int third = 0;
+        if (text.charAt(0) == 'x') {
+            second = Integer.parseInt(String.valueOf(text.charAt(2)));
+            third = Integer.parseInt(String.valueOf(text.charAt(4)));
+        } else if (text.charAt(2) == 'x') {
+            first = Integer.parseInt(String.valueOf(text.charAt(0)));
+            third = Integer.parseInt(String.valueOf(text.charAt(4)));
+        } else {
+            first = Integer.parseInt(String.valueOf(text.charAt(0)));
+            second = Integer.parseInt(String.valueOf(text.charAt(2)));
+        }
+
         if (text.charAt(1) == '+') {
             if (text.charAt(0) == 'x') {
-                res = text.charAt(4) - text.charAt(2);
+                res = third - second;
             } else if (text.charAt(2) == 'x') {
-                res = text.charAt(4) - text.charAt(0);
+                res = third - first;
             } else {
-                res = text.charAt(0) + text.charAt(2);
+                res = first + second;
             }
         } else if (text.charAt(1) == '-') {
             if (text.charAt(0) == 'x') {
-                res = text.charAt(4) + text.charAt(2);
+                res = second + third;
             } else if (text.charAt(2) == 'x') {
-                res = text.charAt(0) - text.charAt(4);
+                res = first - third;
             } else {
-                res = text.charAt(0) - text.charAt(2);
+                res = first - second;
             }
         }
         System.out.println(res);
