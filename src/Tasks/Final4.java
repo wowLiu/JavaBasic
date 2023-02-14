@@ -13,7 +13,7 @@ public class Final4 {
         String advice = "Из зипа зараза";
 
 
-    while (count <= 3) {
+    while (count < 3) {
         answer = inputAnswer.nextLine();
         attempt = answer.equalsIgnoreCase("Заархивированный вирус");
         if (attempt) {
